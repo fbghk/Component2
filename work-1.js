@@ -17,23 +17,42 @@ class BasicData {
     this.age = age;
     this.job = job;
   }
-};
-
-  const component = () => {
-    let obj = new BasicData("공은", 26, "야구공");
-
-    console.log(obj)
-    // const decision = () => {};
-    
-    return `<html></html>`
-  };
-
-  console.log(component())
-
-  const test = {
-    set name(){
-
-    }
+  get name(){
+    return this._name;
   }
+
+  set name(name){
+    this._name = name;
+  }
+
+  get age(){
+    return this._age;
+  }
+
+  set age(age){
+    this._age = age;
+  }
+
+  get job(){
+    return this._job;
+  }
+
+  set job(job){
+    this._job = job;
+  }
+}
+  
+const dlfma = "비설";
+const skdl = 900;
+const wlrdjq = "보좌관";
+
+const dlfurtj = new BasicData(dlfma, skdl, wlrdjq)
+
+console.log("이름: ", dlfurtj.name)
+console.log("나이: ", dlfurtj.age)
+console.log("직업: ", dlfurtj.job)
+console.log(dlfurtj instanceof BasicData)
+
+
   
   
