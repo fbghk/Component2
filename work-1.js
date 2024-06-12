@@ -17,42 +17,59 @@ class BasicData {
     this.age = age;
     this.job = job;
   }
+
+  set name(value){
+    if(typeof(value) === "string"){
+    this._name = value;
+    }else {
+      throw new Error("이름은 문자열이어야 합니다.");
+    }
+  }
   get name(){
     return this._name;
   }
 
-  set name(name){
-    this._name = name;
+  set age(value){
+    if(typeof(value) === "number"){
+      this._age = value;
+    }
   }
 
   get age(){
     return this._age;
   }
 
-  set age(age){
-    this._age = age;
+  set job(value){
+    if(typeof(value) === "string"){
+      this._job = value;
+    }
   }
-
   get job(){
     return this._job;
   }
 
-  set job(job){
-    this._job = job;
-  }
 }
   
-const dlfma = "비설";
-const skdl = 900;
-const wlrdjq = "보좌관";
+const component = () => {
+  let obj = new BasicData("비설", 2200, "보좌")
 
-const dlfurtj = new BasicData(dlfma, skdl, wlrdjq)
+  const decision = () => {
+    if (obj instanceof BasicData) {
 
-console.log("이름: ", dlfurtj.name)
-console.log("나이: ", dlfurtj.age)
-console.log("직업: ", dlfurtj.job)
-console.log(dlfurtj instanceof BasicData)
+      return`
+      <html>
+      <body>
+      <h1>이름: ${obj.name}</h1>
+      <h2>나이: ${obj.age}</h2>
+      <h3>직업: ${obj.job}</h3>
+      </body>
+      </html>
+      `;
+    }else{
+      console.error('규격 미달');
+    }
 
-
-  
-  
+  };
+  return decision();
+}
+console.log(component())
